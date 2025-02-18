@@ -2,6 +2,41 @@
 <html>
 
 <style>
+    *{box-sizing:border-box;
+ 
+    }
+
+    body {
+        box-sizing: border-box;
+        margin: 0;
+        background-color: bisque;
+        /* border-style: solid;
+        border-width: 5px;
+        border-color: white; */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* border-color:darkred; */
+    }
+
+    .wrapper{
+        height: 100vh;
+        border-style: solid;
+        border-width: 20px;
+        border-color:darkred;
+        
+        
+    }
+
+    .margin{
+        /* box-sizing: border-box; */
+        height: 100%;
+        border-style: solid;
+        border-width: 20px;
+        border-color:white
+    }
+
+    /* slideshow style */
     .slideshow-container {
         max-width: 600px;
         position: relative;
@@ -29,12 +64,16 @@
 </style>
 
 <body>
-<h1>Hello World</h1>
+<!-- <h1>Hello World</h1> -->
 
-<div class="slideshow-container">
-    <img id="slide" class="slide" src="" alt="Slideshow Image">
-    <button class="prev" onclick="prevSlide()">❮</button>
-    <button class="next" onclick="nextSlide()">❯</button>
+<div class="wrapper"> 
+    <div class="margin"> 
+        <div class="slideshow-container">
+            <img id="slide" class="slide" src="" alt="Slideshow Image">
+            <button class="prev" onclick="prevSlide()">❮</button>
+            <button class="next" onclick="nextSlide()">❯</button>
+        </div>
+    </div>
 </div>
 
 
