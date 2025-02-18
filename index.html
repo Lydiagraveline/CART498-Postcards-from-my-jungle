@@ -24,8 +24,6 @@
         border-style: solid;
         border-width: 20px;
         border-color:darkred;
-        
-        
     }
 
     .margin{
@@ -73,12 +71,23 @@
             <button class="prev" onclick="prevSlide()">❮</button>
             <button class="next" onclick="nextSlide()">❯</button>
         </div>
+        <div class="phrase-container" id="phrase">
+            Gral-tok Chrikka-tk
+        </div>
     </div>
 </div>
 
 
 <script>
     const numImages = 5 //will be 50
+
+    const phrases = [
+        "Rrrk-chirp",
+        "Chree-gral Ssaa-raak",
+        "Tk-raak Vrekka-chirr",
+        "Gral-sst Vraak-chor",
+        "Chorra-tok Ssaa-vrek"
+    ];
 
     // Array of image URLs
     const images = [];
