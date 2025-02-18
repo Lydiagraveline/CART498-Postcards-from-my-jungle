@@ -83,10 +83,11 @@
 
     const phrases = [
         "Rrrk-chirp",
-        "Chree-gral Ssaa-raak",
-        "Tk-raak Vrekka-chirr",
-        "Gral-sst Vraak-chor",
-        "Chorra-tok Ssaa-vrek"
+        "Snarl-hiss-sniff",
+        "Chitter-screech",
+        "Slurp-lap",
+        "Rrrk-chirp",
+        "Chirp-peck-gobble",
     ];
 
     // Array of image URLs
@@ -97,9 +98,12 @@
 
     let currentIndex = 0;
     const slide = document.getElementById("slide");
+    const phrase =  document.getElementById("phrase");
+    
 
     function showSlide(index) {
         slide.src = images[index];
+        phrase.textContent = phrases[index % phrases.length];
     }
 
     function nextSlide() {
