@@ -1,8 +1,80 @@
 <!DOCTYPE html>
 <html>
-<body>
 
+<style>
+    .slideshow-container {
+        max-width: 600px;
+        position: relative;
+        margin: auto;
+    }
+    
+    .slide {
+        width: 100%;
+        height: auto;
+    }
+    
+    .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+    
+    .prev { left: 10px; }
+    .next { right: 10px; }
+</style>
+
+<body>
 <h1>Hello World</h1>
+
+<div class="slideshow-container">
+    <img id="slide" class="slide" src="" alt="Slideshow Image">
+    <button class="prev" onclick="prevSlide()">❮</button>
+    <button class="next" onclick="nextSlide()">❯</button>
+</div>
+
+
+<script>
+    const numImages = 5 //will be 50
+
+    // Array of image URLs
+    const images = [];
+    for (let i = 1; i <= numImages; i++) {
+        images.push(`images/${i}.jpg`); // Assuming images are in "images" folder
+    }
+
+    let currentIndex = 0;
+    const slide = document.getElementById("slide");
+
+    function showSlide(index) {
+        slide.src = images[index];
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+    }
+
+    function prevSlide() {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        showSlide(currentIndex);
+    }
+
+    // Automatically change the slide every 3 seconds
+    // setInterval(nextSlide, 3000);
+
+    // Load the first image
+    showSlide(currentIndex);
+
+</script>
 
 </body>
 </html>
+
+
+
+
