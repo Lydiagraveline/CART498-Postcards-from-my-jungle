@@ -122,6 +122,43 @@
     // Load the first image
     showSlide(currentIndex);
 
+    // Web Audio API for Panning Sounds
+    const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+
+    function createPannedSound(file, panValue, delay = 0) {
+        const source = audioContext.createBufferSource();
+        const panner = audioContext.createStereoPanner();
+        const gainNode = audioContext.createGain();
+
+        fetch(file)
+            .then(response => response.arrayBuffer())
+            .then(data => audioContext.decodeAudioData(data))
+            .then(buffer => {
+                source.buffer = buffer;
+                panner.pan.value = panValue; // -1 = Left, 1 = Right, 0 = Center
+                gainNode.gain.value = 1; // Normal volume
+
+                source.connect(panner);
+                panner.connect(gainNode);
+                gainNode.connect(audioContext.destination);
+
+                source.loop = true;
+                source.start(audioContext.currentTime + delay); // Start with delay if needed
+            })
+            .catch(error => console.error("Error loading sound:", error));
+    }
+
+    // Play Sounds
+    window.addEventListener("load", () => {
+        audioContext.resume().then(() => {
+            createPannedSound("sounds/frogs.wav", 1, 1, 10);  // Right, no delay, 10seconds
+            createPannedSound("sounds/growls.wav", -1, 5, 21);  // Left
+            createPannedSound("sounds/birds.wav", 0, 0, 10); // center
+            createPannedSound("sounds/Cicada.wav", 0, 0, 21); // center
+        });
+    });
+
+
 </script>
 
 </body>
