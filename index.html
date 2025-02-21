@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
 
+<!-- custom font -->
+<link href="https://fonts.googleapis.com/css2?family=Jacquard+12+Charted&display=swap" rel="stylesheet">
+
+
 <style>
-    *{box-sizing:border-box;
- 
-    }
+    *{box-sizing:border-box;}
 
     body {
         box-sizing: border-box;
         margin: 0;
-        background-color: bisque;
+        background-color: black;
         /* border-style: solid;
         border-width: 5px;
         border-color: white; */
@@ -17,63 +19,81 @@
         justify-content: center;
         align-items: center;
         /* border-color:darkred; */
+        font-family: "Jacquard 12 Charted", sans-serif;
+        color: white;
+        font-size: 100px;
+        text-align: center; /* Ensure text is centered */
     }
 
     .wrapper{
         height: 100vh;
-        border-style: solid;
-        border-width: 20px;
-        border-color:darkred;
+        /* border: 20px solid darkred; */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
     }
 
-    .margin{
-        /* box-sizing: border-box; */
-        height: 100%;
-        border-style: solid;
-        border-width: 20px;
-        border-color:white
+    /* Slideshow wrapper to position arrows outside */
+    .slideshow-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px; /* Space between buttons and image */
+        /* border: 20px solid white; */
     }
-
+   
     /* slideshow style */
     .slideshow-container {
-        max-width: 600px;
+        width: 600px; 
         position: relative;
-        margin: auto;
     }
     
     .slide {
         width: 100%;
-        height: auto;
+        /* height: 50vh; */
+        object-fit: cover; /* Ensures images don’t stretch */
+        border: 5px solid white;
     }
     
     .prev, .next {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
         background-color: rgba(0, 0, 0, 0.5);
         color: white;
         border: none;
-        padding: 10px;
+        padding: 15px;
         cursor: pointer;
+        font-size: 30px;
+        /* border: 5px solid white; */
+
     }
     
     .prev { left: 10px; }
     .next { right: 10px; }
+    
+    .phrase-container {
+    /* width: 600px; */
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+    margin-top: 20px;
+}
+
 </style>
 
 <body>
 <!-- <h1>Hello World</h1> -->
 
 <div class="wrapper"> 
-    <div class="margin"> 
-        <div class="slideshow-container">
+    <div class="slideshow-wrapper">
+        <button class="prev" onclick="prevSlide()">❮</button>
+         <div class="slideshow-container">
             <img id="slide" class="slide" src="" alt="Slideshow Image">
-            <button class="prev" onclick="prevSlide()">❮</button>
-            <button class="next" onclick="nextSlide()">❯</button>
         </div>
-        <div class="phrase-container" id="phrase">
-            Gral-tok Chrikka-tk
-        </div>
+        <button class="next" onclick="nextSlide()">❯</button>
+    </div>
+    <div class="phrase-container" id="phrase">
+        Gral-tok Chrikka-tk
     </div>
 </div>
 
@@ -82,6 +102,22 @@
     const numImages = 5 //will be 50
 
     const phrases = [
+    "Grunt-snuffle-snort",
+    "Skree-click-hiss",
+    "Chuff-growl",
+    "Huff-snort-thump",
+    "Buzz-drone-hum",
+    "Croak-rattle-gulp",
+    "Snick-clack-chatter",
+    "Whirr-click-snap",
+    "Glorp-blorp-slosh",
+    "Tsk-tsk-chitter",
+    "Trill-whoop-click",
+    "Squeak-scurry-rustle",
+    "Hiss-spit-flick",
+    "Bloop-glug-burb",
+    "Yip-howl-snarf",
+    "Flap-rustle-coo",
         "Rrrk-chirp",
         "Snarl-hiss-sniff",
         "Chitter-screech",
