@@ -184,15 +184,21 @@
             .catch(error => console.error("Error loading sound:", error));
     }
 
-    // Play Sounds
-    window.addEventListener("load", () => {
-        audioContext.resume().then(() => {
-            createPannedSound("sounds/frogs.wav", 1, 1, 10);  // Right, no delay, 10seconds
-            createPannedSound("sounds/growls.wav", -1, 5, 21);  // Left
-            createPannedSound("sounds/birds.wav", 0, 0, 10); // center
-            createPannedSound("sounds/Cicada.wav", 0, 0, 21); // center
+    // Play Sounds when the user clicks
+    function playSoundsOnClick() {
+        // Wait for the user's click to start the audio
+        document.addEventListener("click", () => {
+            audioContext.resume().then(() => {
+                createPannedSound("sounds/frogs.wav", 1, 1, 10);  // Right, no delay, 10 seconds
+                createPannedSound("sounds/growls.wav", -1, 5, 21);  // Left
+                createPannedSound("sounds/birds.wav", 0, 0, 10); // Center
+                createPannedSound("sounds/Cicada.wav", 0, 0, 21); // Center
+            });
         });
-    });
+    }
+
+    // Initialize the sound playback process when the window loads
+    window.addEventListener("load", playSoundsOnClick);
 
 
 </script>
